@@ -1,0 +1,67 @@
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+
+            <!-- Quiz Card -->
+            <div class="card shadow-sm" >
+
+                <!-- Header -->
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0 fw-bold">Online Quiz</h6>
+
+                    
+                </div>
+
+                <!-- Body -->
+                <div class="card-body"  *ngIf="currentQuestion as q">
+
+                    <!-- Question -->
+                    <h4 class="mb-4">
+                        Q{{ currentIndex + 1 }}.
+                        {{ q.question }}
+                    </h4>
+
+                    <!-- Options -->
+                    <div class="form-check option-box" >
+                        <label>
+                            A) <input type="radio" name="optionA" value="A" (change)="saveAnswer('A')"  [checked]="answers[currentQuestion.id] === 'A'">
+                            {{ q.optionA }}
+                        </label><br>
+
+                        <label>
+                            B) <input type="radio" name="optionB" value="B" (change)="saveAnswer('B')"  [checked]="answers[currentQuestion.id] === 'B'">
+                            {{ q.optionB }}
+                        </label><br>
+
+                        <label>
+                            C) <input type="radio" name="optionC" value="C" (change)="saveAnswer('C')"  [checked]="answers[currentQuestion.id] === 'C'">
+                            {{ q.optionC }}
+                        </label><br>
+
+                        <label>
+                            D) <input type="radio" name="optionD" value="D" (change)="saveAnswer('D')"  [checked]="answers[currentQuestion.id] === 'D'">
+                            {{ q.optionD }}
+                        </label>
+
+                        <!-- Footer -->
+                        <div class="card-footer d-flex flex-column flex-sm-row gap-2 mt-5 justify-content-between">
+                            <button class="btn btn-outline-primary w-100 w-sm-auto" (click)="prevQuestion()"
+                                [disabled]="currentIndex === 0">
+                                ⬅ Prev
+                            </button>
+
+                            <button class="btn  btn-primary w-100 w-sm-auto" *ngIf="currentIndex < questions.length - 1" (click)="nextQuestion()"
+                                [disabled]="currentIndex === questions.length - 1">
+                                Next ➡
+                            </button>
+
+                            <button *ngIf="currentIndex === questions.length - 1"
+                                class="btn btn-sm-success w-100 w-sm-auto" (click)="submitQuiz()">
+                                Submit ✔
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>

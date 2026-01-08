@@ -1,0 +1,9 @@
+ .hero {
+      padding: 80px 0;
+      text-align: center;
+      background: #f8f9fa;
+    }
+    .category-card:hover {
+      transform: translateY(-5px);
+      transition: 0.3s;
+    }

@@ -1,0 +1,157 @@
+<div class="container-fluid p-0 bg-light" style="min-height: 100vh;">
+
+    <!-- TOP BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow-sm">
+        <a class="navbar-brand fw-bold" href="#">Quiz Admin</a>
+
+        <div class="ms-auto d-flex align-items-center">
+
+            <!-- Search -->
+            <input type="text" class="form-control form-control-sm me-3" 
+                   placeholder="Search..." style="width: 200px;">
+
+            <!-- Bell Icon -->
+            <button class="btn btn-outline-light me-3">
+                🔔
+            </button>
+
+            <!-- Admin Avatar -->
+            <img src="https://i.ibb.co/4pDNDk1/avatar.png" 
+                 width="35" height="35" class="rounded-circle border border-light">
+        </div>
+    </nav>
+
+
+    <div class="row g-0">
+
+        <!-- SIDEBAR -->
+        <div class="col-sm-2 bg-white border-end shadow-sm" style="min-height: 100vh;">
+
+            <div class="p-3 border-bottom text-center fw-bold fs-5">
+                MENU
+            </div>
+
+            <ul class="nav nav-pills flex-column p-3">
+
+                <li class="nav-item my-1">
+                    <a routerLink="/dashboard" class="nav-link active rounded-3">🏠 Dashboard</a>
+                </li>
+
+                <li class="nav-item my-1">
+                    <a routerLink="/quiz" class="nav-link text-dark rounded-3">📚 Quizzes</a>
+                </li>
+
+                <li class="nav-item my-1">
+                    <a routerLink="/attempt" class="nav-link text-dark rounded-3">❓ Attempts</a>
+                </li>
+
+                <li class="nav-item my-1">
+                    <a routerLink="/users" class="nav-link text-dark rounded-3">👤 Users</a>
+                </li>
+
+                <li class="nav-item my-1">
+                    <a routerLink="/reports" class="nav-link text-dark rounded-3">📊 Reports</a>
+                </li>
+
+                <li class="nav-item my-1">
+                    <a routerLink="/settings" class="nav-link text-dark rounded-3">⚙ Settings</a>
+                </li>
+
+                <li class="nav-item my-4">
+                    <a routerLink="/logout" class="nav-link text-danger fw-semibold rounded-3">🚪 Logout</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="col-sm-10 p-4">
+
+            <!-- DASHBOARD TITLE -->
+            <h3 class="fw-bold mb-4">Dashboard Overview</h3>
+
+            <!-- CARDS ROW -->
+            <div class="row g-4 mb-4">
+
+                <div class="col-sm-3">
+                    <div class="card shadow-sm border-0 text-bg-primary text-center p-3">
+                        <h6 class="fw-bold">Total Quizzes</h6>
+                        <h2 class="fw-bold mt-2">25</h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="card shadow-sm border-0 text-bg-success text-center p-3">
+                        <h6 class="fw-bold">Total Questions</h6>
+                        <h2 class="fw-bold mt-2">380</h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="card shadow-sm border-0 text-bg-warning text-center p-3">
+                        <h6 class="fw-bold">Total Attempts</h6>
+                        <h2 class="fw-bold mt-2">1280</h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="card shadow-sm border-0 text-bg-danger text-center p-3">
+                        <h6 class="fw-bold">Active Users</h6>
+                        <h2 class="fw-bold mt-2">150</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- RECENT ATTEMPTS TABLE -->
+            <div class="card shadow-sm border-0 p-3">
+                <h5 class="fw-bold">Recent Quiz Attempts</h5>
+                <hr>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Quiz</th>
+                            <th>Score</th>
+                            <th>Time Taken</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Rohan</td>
+                            <td>Java Basics</td>
+                            <td>18/20</td>
+                            <td>12 mins</td>
+                            <td>07 Dec</td>
+                        </tr>
+
+                        <tr>
+                            <td>Aditi</td>
+                            <td>SQL Beginner</td>
+                            <td>15/20</td>
+                            <td>14 mins</td>
+                            <td>07 Dec</td>
+                        </tr>
+
+                        <tr>
+                            <td>Shivang</td>
+                            <td>Spring Boot MCQ</td>
+                            <td>19/20</td>
+                            <td>10 mins</td>
+                            <td>06 Dec</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

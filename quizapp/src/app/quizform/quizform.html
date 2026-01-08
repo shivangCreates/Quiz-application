@@ -1,0 +1,75 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">QuizMaster</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-lg rounded-4">
+
+      <!-- Header -->
+      <div class="card-header text-center bg-primary text-white rounded-top-4">
+        <h3 class="mb-0">📝 Quiz Registration</h3>
+        <small>Enter details to start the quiz</small>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body p-4">
+        <form (ngSubmit)="StartTest()">
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" [(ngModel)]="name" placeholder="Enter your name" name="name"
+              required />
+          </div>
+
+          <!-- Mobile -->
+          <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input type="tel" class="form-control" placeholder="Enter mobile number" [(ngModel)]="mobile" name="mobile"
+              maxlength="10" required />
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control"   [(ngModel)]="email" placeholder="Enter email" name="email" required />
+          </div>
+
+          <!-- College -->
+          <div class="mb-3">
+            <label class="form-label">College Name</label>
+            <input type="text" class="form-control" placeholder="Enter college name"  [(ngModel)]="college" name="college" />
+          </div>
+
+          <!-- Quiz Code -->
+          <div class="mb-4">
+            <label class="form-label">Quiz Code</label>
+            <input type="text" class="form-control text-uppercase" placeholder="Enter quiz code" [(ngModel)]="quizCode" name="quizCode"
+              required />
+          </div>
+
+          <!-- Button -->
+          <div class="d-grid">
+            <button  type="submit" class="btn btn-primary btn-lg">
+              🚀 Start Quiz
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="card-footer text-center text-muted small">
+        Best of Luck! 🍀
+      </div>
+
+    </div>
+  </div>
+</div>

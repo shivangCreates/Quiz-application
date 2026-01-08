@@ -1,0 +1,177 @@
+<div class="container-fluid">
+
+    <!-- Header -->
+    <div class="row">
+        <div class="col-sm-12 p-3 text-center bg-dark text-white fw-bold fs-4">
+            Quiz App - Admin Panel
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-sm-2 bg-light border-end min-vh-100 p-3">
+            <ul class="nav nav-pills flex-column gap-2">
+
+                <li class="nav-item">
+                    <a routerLink="/dashboard" class="nav-link d-flex align-items-center gap-2">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a routerLink="/quiz" class="nav-link d-flex align-items-center gap-2">
+                        <i class="bi bi-ui-checks-grid"></i> Quiz
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a routerLink="/attempts" class="nav-link d-flex align-items-center gap-2">
+                        <i class="bi bi-clipboard-data"></i> Attempts
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-sm-10 p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="fw-bold">Question Management  
+                    <span class="text-primary">(Quiz #{{quizid}})</span>
+                </h2>
+
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-plus-circle"></i> Add Question
+                </button>
+            </div>
+
+            <!-- Table -->
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Questions List</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-bordered table-striped text-center align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Sr.No.</th>
+                                <th>Question</th>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>D</th>
+                                <th>Correct</th>
+                                <th style="width: 150px;">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for(q of questionList ;track q){
+                            <tr >
+                                <td>{{ q.id }}</td>
+                                <td class="text-start">{{ q.question }}</td>
+                                <td>{{ q.optionA }}</td>
+                                <td>{{ q.optionB }}</td>
+                                <td>{{ q.optionC }}</td>
+                                <td>{{ q.optionD }}</td>
+                                <td class="fw-bold text-success">{{ q.correctAns }}</td>
+
+                                <td>
+                                    <button class="btn btn-warning btn-sm me-2"
+                                        (click)="editQuestion(q.id)">
+                                        <i class="bi bi-pencil-square"></i>Edit
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm"
+                                        (click)="deleteQuestion(q.id)">
+                                        <i class="bi bi-trash"></i>Delete
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr *ngIf="questionList.length === 0">
+                                <td colspan="8" class="text-center text-muted">
+                                    No questions added yet.
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Add Question Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title">Add New Question</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form (ngSubmit)="saveQuestion()">
+                                <input type="hidden" name="quizid" [(ngModel)]="quizid" />
+
+                                <label class="fw-bold mb-1">Enter Question</label>
+                                <textarea rows="2" class="form-control" [(ngModel)]="question" name="question"></textarea>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label class="fw-bold">Option A</label>
+                                        <input type="text" class="form-control" name="optionA" [(ngModel)]="optiona">
+                                    </div>
+
+                                    <div class="col-sm-6 mb-3">
+                                        <label class="fw-bold">Option B</label>
+                                        <input type="text" class="form-control" name="optionB" [(ngModel)]="optionb">
+                                    </div>
+
+                                    <div class="col-sm-6 mb-3">
+                                        <label class="fw-bold">Option C</label>
+                                        <input type="text" class="form-control" name="optionC" [(ngModel)]="optionc">
+                                    </div>
+
+                                    <div class="col-sm-6 mb-3">
+                                        <label class="fw-bold">Option D</label>
+                                        <input type="text" class="form-control" name="optionD" [(ngModel)]="optiond">
+                                    </div>
+                                </div>
+
+                                <label class="fw-bold">Correct Answer</label>
+                                <select class="form-select" name="correctAns" [(ngModel)]="correct">
+                                    <option value="">Select Correct Answer</option>
+                                    <option value="A">Option A</option>
+                                    <option value="B">Option B</option>
+                                    <option value="C">Option C</option>
+                                    <option value="D">Option D</option>
+                                </select>
+                                <br>
+
+                                <div class="text-end">
+                                    <button class="btn btn-success px-4" type="submit">
+                                        <i class="bi bi-check-circle"></i> Save
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
